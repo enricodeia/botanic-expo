@@ -1,54 +1,51 @@
-// CODICE PER GITHUB
+document.addEventListener('DOMContentLoaded', function () {
+  const links = document.querySelectorAll('a');
+  const isHomePage = window.location.pathname === '/';
 
-// Code that runs on click of a link
-$(window).on('load', function() {
-	// AVVIO
+  if (isHomePage) {
+    // Code that runs on pageload for the homepage
+    gsap.to(".load_grid-item", {
+      opacity: 0,
+      duration: 0.3,
+      stagger: { amount: 0.5, from: "random" },
+      onComplete: () => {
+        gsap.set(".load_grid", { display: "none" });
+      }
+    });
+  }
 
-
-  // Code that runs on pageload
-
-  gsap.to(".load_grid-item", {
-    opacity: 0,
-    duration: 0.3,
-    stagger: { amount: 0.5, from: "random" },
-    onComplete: () => {
-      gsap.set(".load_grid", { display: "none" });
-    }
-  });
-
-	
-
-  $("a").on("click", function (e) {
-    if (
-    	$(this).prop("hostname") === window.location.host &&
-      $(this).attr("href").indexOf("#") === -1 &&
-      $(this).attr("target") !== "_blank") {
+  links.forEach(link => {
+    link.addEventListener('click', function (e) {
+      if (
+        this.hostname === window.location.hostname &&
+        !this.href.includes('#') &&
+        this.target !== '_blank'
+      ) {
         e.preventDefault();
-        let destination = $(this).attr("href");
-        gsap.set(".load_grid", { display: "grid" });
+        let destination = this.href;
+        gsap.set('.load_grid', { display: 'grid' });
         gsap.fromTo(
-          ".load_grid-item",
-          {
-            opacity: 0
-          },
+          '.load_grid-item',
+          { opacity: 0 },
           {
             opacity: 1,
             duration: 0.001,
-            stagger: { amount: 0.5, from: "random" }, //you can also try a from: "start" or "end" -- get creative!
+            stagger: { amount: 0.5, from: 'random' },
             onComplete: () => {
               window.location = destination;
             }
           }
         );
-    }
+      }
+    });
   });
-  
-  // On click of the back button
-  window.onpageshow = function(event){
-  	if (event.persisted) {
-    	window.location.reload();
+
+  // Handle back button navigation
+  window.onpageshow = function (event) {
+    if (event.persisted) {
+      window.location.reload();
     }
-  }
+  };
 });
 
 
