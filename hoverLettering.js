@@ -1,7 +1,7 @@
 // Code that runs on pageload
 gsap.to(".load_grid-item", {
   opacity: 0,
-  duration: 0.001,
+  duration: 0.3,
   stagger: { amount: 0.5, from: "random" },
   onComplete: () => {
     gsap.set(".load_grid", { display: "none" });
