@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
   const links = document.querySelectorAll('a');
-  const isHomePage = window.location.pathname === '/';
+  const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
 
   if (isHomePage) {
-    // Code that runs on pageload for the homepage
+    // Hide load_grid on homepage load
+    gsap.set(".load_grid", { display: "none" });
+  } else {
+    // Code that runs on pageload for other pages
     gsap.to(".load_grid-item", {
       opacity: 0,
       duration: 0.3,
