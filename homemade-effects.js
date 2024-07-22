@@ -1,7 +1,7 @@
 // CODICE PER GITHUB
 
 // Code that runs on click of a link
-$(document).ready(function () {
+$(window).on('load', function() {
 	// AVVIO
 
 
