@@ -1,4 +1,4 @@
- // Code that runs on pageload
+$(document).ready(function () {
 
   gsap.to(".load_grid-item", {
     opacity: 0,
