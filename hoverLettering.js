@@ -1,4 +1,11 @@
+// CODICE PER GITHUB
+
+// Code that runs on click of a link
 $(document).ready(function () {
+	// AVVIO
+
+
+  // Code that runs on pageload
 
   gsap.to(".load_grid-item", {
     opacity: 0,
