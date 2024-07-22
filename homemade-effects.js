@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!isHomePage) {
     // Code that runs on pageload for other pages
+    gsap.set(".load_grid", { display: "grid" });
     gsap.to(".load_grid-item", {
       opacity: 0,
       duration: 0.3,
