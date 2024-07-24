@@ -1,5 +1,4 @@
-
-  class GalleryApp {
+class GalleryApp {
     constructor() {
       this.imgOrder = [
         'QUANTIC ORCHID',
@@ -117,6 +116,21 @@
       const currentLink = this.links[this.currentIndex];
       const nextLink = this.links[index];
 
+      // Debugging logs
+      console.log('Switching from:', this.currentIndex, 'to:', index);
+      console.log('Current Image:', currentImg);
+      console.log('Next Image:', nextImg);
+      console.log('Current Background:', currentBg);
+      console.log('Next Background:', nextBg);
+      console.log('Current Title Top:', currentTitleTop);
+      console.log('Next Title Top:', nextTitleTop);
+      console.log('Current Title Bottom:', currentTitleBottom);
+      console.log('Next Title Bottom:', nextTitleBottom);
+      console.log('Current Number:', currentNumber);
+      console.log('Next Number:', nextNumber);
+      console.log('Current Link:', currentLink);
+      console.log('Next Link:', nextLink);
+
       // Animate flowers
       gsap.timeline()
         .to(currentImg, {
@@ -218,4 +232,3 @@
   document.addEventListener("DOMContentLoaded", () => {
     new GalleryApp();
   });
-
