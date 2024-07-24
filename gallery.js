@@ -1,4 +1,4 @@
-<script defer>
+
   class GalleryApp {
     constructor() {
       this.imgOrder = [
@@ -218,4 +218,4 @@
   document.addEventListener("DOMContentLoaded", () => {
     new GalleryApp();
   });
-</script>
+
