@@ -1,4 +1,5 @@
- class GalleryApp {
+<script defer>
+  class GalleryApp {
     constructor() {
       this.imgOrder = [
         'QUANTIC ORCHID',
@@ -217,3 +218,4 @@
   document.addEventListener("DOMContentLoaded", () => {
     new GalleryApp();
   });
+</script>
