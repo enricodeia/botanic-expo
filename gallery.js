@@ -1,4 +1,4 @@
-class GalleryApp {
+  class GalleryApp {
     constructor() {
       this.imgOrder = [
         'QUANTIC ORCHID',
@@ -17,6 +17,7 @@ class GalleryApp {
       this.titleBottomContainers = document.querySelectorAll(".title_bottom-container .flower-title_02-wrap");
       this.numbers = document.querySelectorAll(".listed_numbers-wrap div");
       this.links = document.querySelectorAll(".flower_link-wrap a");
+      this.isAnimating = false; // Flag to check if an animation is in progress
 
       // Debugging logs
       console.log('Total items:', this.totalItems);
@@ -97,6 +98,10 @@ class GalleryApp {
     }
 
     onSelectIndex(index) {
+      if (this.isAnimating) return; // Prevent new animation if one is already in progress
+
+      this.isAnimating = true; // Set the flag to indicate an animation is in progress
+
       if (index < 0) {
         index = this.totalItems - 1;
       } else if (index >= this.totalItems) {
@@ -226,6 +231,11 @@ class GalleryApp {
       gsap.set(nextLink, { display: 'block' });
 
       this.currentIndex = index;
+
+      // Reset the flag when the animation is complete
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, 600); // Match this duration with the longest animation duration
     }
   }
 
